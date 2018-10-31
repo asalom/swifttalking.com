@@ -1,0 +1,63 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title:              Swift Talking with Alex Salom
+#logo:               # Logo image URL
+#email:              alex.salom@gmail.com
+description:        Swift Talking with Alex Salom
+baseurl:            '' # The subpath of your site, e.g. /blog
+url:                'http://maxima-jekyll.aspirethemes.com' # The base hostname & protocol for your site
+github_username:    asalom
+twitter_username:   empatiia
+linkedin_username:  alexsalom
+#instagram_username: aspirethemes
+
+markdown:  kramdown
+highlighter: rouge
+#permalink: pretty
+permalink: /:categories/:title/
+paginate:  13
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-paginate
+  - jekyll/tagging
+  - jekyll-time-to-read
+
+include:
+  - _pages
+
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+
+# Tags
+tag_page_dir:         tag
+tag_page_layout:      tag_page
+tag_permalink_style:  pretty
+
+# Pages path
+defaults:
+  - scope:
+      path: '_pages'
+    values:
+      permalink: /:basename:output_ext
+
+# Authors
+authors:
+  asalom:
+    name:             Alex Salom
+    bio:              'Hi! My name is Alex Salom and I’m an iOS Engineer. In this site I’ll share with you tricks & tips related to iOS and also to everything that happens around it: tooling, Continuous Integration and Continuous Delivery. You can find me as well in <a href="https://twitter.com/empatiia" target="_blank">Twitter</a>, <a href="https://github.com/asalom" target="_blank">GitHub</a> and <a href="https://www.linkedin.com/in/alexsalom" target="_blank">LinkedIn</a>.'
+    gravatar:         https://secure.gravatar.com/avatar/f6d542dbc5488619e1498aa6b11e1209?s=150&r=g
+    #email:            alex.salom@gmail.com
+    #website:          http://aspirethemes.com
+    github_username:  asalom
+    twitter_username: empatiia
+    linkedin_username: alexsalom
