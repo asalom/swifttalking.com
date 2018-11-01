@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  Localize strings more beautifully with an extension
-tags:
-- swift
+author: asalom
+tags:   [swift]
 ---
 
 If you've worked in an App that has multiple languages you'd probably have learn to ~~hate~~ love Apple's localization API `NSLocalizedString`. We just want a localize some strings but instead we are forced to provide a comment which in most cases we'll just pass in `nil`.

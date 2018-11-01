@@ -1,8 +1,8 @@
 ---
 layout: post
-author: asalom
 title:  Generate animated GIFs from the iOS Simulator and the Android Emulator
-tags: [tool]
+author: asalom
+tags:   [tool]
 ---
 
 Here at [crvsh GmbH](https://crvsh.com/) I do pull requests on a daily basis. I also review them almost every day. While reviewing code from another colleague in GitHub’s Pull Request interface it is very hard to imagine how those changes will look like in a running App. This is why sometimes I even checkout my colleague’s branch and run it locally so I can see how everything looks like in the Simulator. 

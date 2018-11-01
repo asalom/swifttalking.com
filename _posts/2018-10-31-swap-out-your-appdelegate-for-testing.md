@@ -1,8 +1,8 @@
 ---
 layout: post
-author: asalom
 title:  Swap out your App Delegate for testing
-tags: [swift]
+author: asalom
+tags:   [swift]
 ---
 
 The best thing about unit testing is the ability to know if our production code works as expected without having to tap around in the Simulator. It is crucial that we receive this feedback fast so we can run the test suite as much as possible. That is even more important when we are practicing **TDD**.
