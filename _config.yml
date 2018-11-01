@@ -29,6 +29,7 @@ plugins:
   - jekyll-paginate
   - jekyll/tagging
   - jekyll-time-to-read
+  - jekyll-seo-tag
 
 include:
   - _pages
