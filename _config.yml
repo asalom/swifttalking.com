@@ -11,7 +11,7 @@ title:              Swift Talking with Alex Salom
 #email:              alex.salom@gmail.com
 description:        Swift Talking with Alex Salom
 baseurl:            '' # The subpath of your site, e.g. /blog
-url:                'http://maxima-jekyll.aspirethemes.com' # The base hostname & protocol for your site
+url:                'https://www.swifttalking.com' # The base hostname & protocol for your site
 github_username:    asalom
 twitter_username:   empatiia
 linkedin_username:  alexsalom
