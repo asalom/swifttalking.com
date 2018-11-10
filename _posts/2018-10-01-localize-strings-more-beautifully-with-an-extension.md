@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  Localize strings more beautifully with an extension
+description: NSLocalizedString is long and ugly. Use this simple extension to avoid the verbosity of Apple's API.
 author: asalom
 tags:   [swift]
 ---

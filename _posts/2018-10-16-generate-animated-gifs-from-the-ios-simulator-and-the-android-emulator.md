@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  Generate animated GIFs from the iOS Simulator and the Android Emulator
+description: Learn how to generate animtated GIFs from both the iOS Simulator and the Android Emulator. We can later attach this GIFs to Pull Requests or README files to showcase the running application.
 author: asalom
 tags:   [tool]
 ---

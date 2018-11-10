@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  Swap out your App Delegate for testing
+description: Running unit tests often is important, that's why we want our test suite to run as fast as possible. You can speed up the execution of  your unit tests by using a fake App Delegate instead of the real one.
 author: asalom
 tags:   [swift]
 ---
