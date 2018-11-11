@@ -1,4 +1,8 @@
+---
+layout: null
+---
+
 User-agent: *
 Disallow:
 
-Sitemap: https://www.swifttalking.com/sitemap.xml
+Sitemap: {{ "sitemap.xml" | absolute_url }}
