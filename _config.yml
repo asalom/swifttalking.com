@@ -30,6 +30,7 @@ plugins:
   - jekyll/tagging
   - jekyll-time-to-read
   - jekyll-seo-tag
+  - jekyll-feed
   - jekyll-sitemap
 
 include:
