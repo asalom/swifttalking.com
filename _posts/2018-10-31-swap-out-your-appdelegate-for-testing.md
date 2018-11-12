@@ -26,8 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-<br/>
-
 ><a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Attributes.html">NSApplicationMain</a>
 >
 > Apply this attribute to a class to indicate that it is the application delegate. Using this attribute is equivalent to calling the NSApplicationMain(::) function and passing this class’s name as the name of the delegate class.
