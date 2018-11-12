@@ -22,11 +22,11 @@ As I mentioned, at crvsh we like running in the Simulator each other branches be
 $ xcrun simctl io booted recordVideo recording.mp4
 ```
 
-Now to convert that video to a GIF there are different options. Personally I liked using [😻 ifify](https://github.com/vvo/gifify). This was fine but it became very repetitive process: record video, stop video, execute gifify and remember the correct parameters.
+Now to convert that video to a GIF there are different options. Personally I liked using [😻 gifify](https://github.com/vvo/gifify). This was fine but it became very repetitive process: record video, stop video, execute gifify and remember the correct parameters.
 
 ## Capa
 
-To overcome this repetitive process I decided to develop a utility called capa which we recently open sourced. capa lets you record a GIF and a video of your iOS Simulator all with one simple command: `$ capa-ios`. There is also another option to record the Android Emulator with `$ capa-android`
+To overcome this repetitive process I decided to develop a utility called [capa which we recently open sourced](https://github.com/crvshlab/capa). capa lets you record a GIF and a video of your iOS Simulator all with one simple command: `$ capa-ios`. There is also another option to record the Android Emulator with `$ capa-android`
 
 ```s
 $ capa-ios --help
@@ -43,3 +43,5 @@ from the Android Emulator.
     -v, --version             Display version
     -h, --help                Display help
 ```
+
+Checkout the project at GitHub: [https://github.com/crvshlab/capa](https://github.com/crvshlab/capa)
