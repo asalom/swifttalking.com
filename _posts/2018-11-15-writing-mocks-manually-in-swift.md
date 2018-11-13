@@ -98,8 +98,86 @@ class UserPresenterTests: XCTestCase {
 }
 ```
 
+---
+
 ### But... what about unowned code?
 
-We saw that writing mocks for code that we own is very easy if we make our classes implement certain protocols but what happens with code which we do not own and we can't modify? 
+We saw that writing mocks for code that we own is very easy, we only need to make our classes adopt certain protocols. But what happens with code which we do not own and we can't modify? 
 
-The answer is again we need to use _protocols_. We need to extend the code that we do not own with our own protocols.
+The answer is, again, we need to use _protocols_. We need to extend the code that we do not own with our own protocols. Let's see this in action with a simple counter that relies on `UserDefaults`.
+
+```swift
+protocol Defaults {
+  func integer(forKey defaultName: String) -> Int
+  func set(_ value: Int, forKey defaultName: String)
+}
+
+extension UserDefaults: Defaults { }
+
+class Counter {
+  private let defaults: Defaults
+
+  init(defaults: Defaults = UserDefaults.standard) {
+    self.defaults = defaults
+  }
+
+  var count: Int {
+    return defaults.integer(forKey: "count")
+  }
+
+  func increment() {
+    defaults.set(count + 1, forKey: "count")
+  }
+}
+```
+
+See? We decorated Apple's `UserDefaults` with our own protocol named `Defaults` where we defined functions with the same signature that `UserDefaults` has. `Counter` then declares a `Defaults` constant that gets injected through the initializer using a default value of `UserDefaults.standard` but with type `Defaults`, that is our own protocol. We can now use the exact same technique as before to implement our own `DefaultsMock` in the test target
+
+```swift
+class DefaultsMock: Defaults {
+  var integerParam: String?
+  var integerToReturn = 0
+  func integer(forKey defaultName: String) -> Int {
+    integerParam = defaultName
+    return integerToReturn
+  }
+
+  var setParams: (value: Int, defaultName: String)?
+  func set(_ value: Int, forKey defaultName: String) {
+    setParams = (value, defaultName)
+  }
+}
+```
+
+Notice how we used an optional touple in the `set` function as control variable where we group all parameters that are passed into the function. This will reduce the amount of variables we need to define. Instead of defining one variable per parameter from the funciton's signature, we define a touple that groups them all.
+
+
+```swift
+class CounterTests: XCTestCase {
+  var defaults: DefaultsMock!
+  var sut: Counter!
+
+  override func setUp() {
+    super.setUp()
+
+    defaults = DefaultsMock()
+    sut = Counter(defaults: defaults)
+  }
+
+  func testRetrieveCount() {
+    let retrunedCount = sut.count
+
+    XCTAssertEqual(retrunedCount, defaults.integerToReturn)
+    XCTAssertEqual(defaults.integerParam, "count")
+  }
+
+  func testIncrementCount() {
+    let beforeIncrement = sut.count
+
+    sut.increment()
+
+    XCTAssertEqual(defaults.setParams?.value, beforeIncrement + 1)
+    XCTAssertEqual(defaults.setParams?.defaultName, "count")
+  }
+}
+```
