@@ -21,4 +21,12 @@
     background-repeat: repeat-x;
     background-image: linear-gradient(to bottom, $color-brand, $color-brand);
   }
+
+  h1, h2, h3, h4, h5, img, .highlight, blockquote {
+    margin-top: 30px;
+  }
+  
+  img, .highlight, blockquote {
+    margin-bottom: 30px;
+  }
 }

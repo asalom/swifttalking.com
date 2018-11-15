@@ -15,7 +15,6 @@
   &__img {
     float: left;
     border-radius: 100%;
-    margin-right: $base-spacing-unit;
     height: quadruple($base-spacing-unit);
     width: quadruple($base-spacing-unit);
 
@@ -27,6 +26,7 @@
   }
 
   &__body {
+    margin-left: $base-spacing-unit;
     @include mq($from: tablet) {
       overflow: hidden;
     }

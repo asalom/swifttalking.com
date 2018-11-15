@@ -16,7 +16,7 @@
       <h3 class='c-post-card__title'>{{ post.title }}</h3>
 
       <p class='c-post-card__excerpt u-font-small'>
-        {{ post.description }}
+        {{ post.description | strip_html }}
         <!-- {{ post.content | strip_html | truncatewords:25 }} -->
       </p>
 
