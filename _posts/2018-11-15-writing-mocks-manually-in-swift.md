@@ -189,3 +189,5 @@ class CounterTests: XCTestCase {
   }
 }
 ```
+
+This is how you can mock code which you don't have access and can't modify.
