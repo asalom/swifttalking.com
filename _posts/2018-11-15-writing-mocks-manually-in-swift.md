@@ -6,7 +6,7 @@ author: asalom
 tags:   [swift]
 ---
 
-When writing unit tests we want to check the interactions between the subject under test or `sut` and its dependencies. In other programming languages, like Objective-C we can do this with one of the multiple mocking frameworks available such as [OCMock](http://ocmock.org/). Unfortunately in Swift we don't have any framework like these available and the reason for this is that Swift’s reflection capabilities are limited and provides read-only access to a subset of type metadata. In other words, we can't modify class definitions in runtime. This leaves us with two options: Write mocks manually or automatically with some short of code generator. Today we'll talk about the first option.
+When writing unit tests we want to check the interactions between the subject under test or `sut` and its dependencies. In other programming languages like Objective-C we can do this with one of the multiple mocking frameworks available such as [OCMock](http://ocmock.org/). Unfortunately in Swift we don't have any framework like these available and the reason for this is that Swift’s reflection capabilities are limited, they provide read-only access to a subset of type metadata. In other words, we can't modify a class definition in runtime. This leaves us with two options: Write mocks manually or generate them with some short of code generator. Today we'll talk about the first option.
 
 ### Writing mocks manually
 _Protocols_ are very useful when writing mocks. A protocol defines a blueprint of methods, properties and other requirements that adopting classes, structs or enumerations must implement. A protocol can be adopted by one or several classes. 
@@ -49,7 +49,7 @@ class UserPresenter {
 }
 ```
 
-So far so good. The next step will be testing the interactions of `UserPresenter` with its dependencies. To do this, we'll go to our test target and create two new classes: `UserViewMock` and `UserRepositoryMock`. They will implement the protocols that we defined earlier.
+So far so good. We can see now how `UserPresenter` depends and interacts with both the repository and the view. The next step will be testing those interactions. To do this, we'll go to our test target and create two new classes: `UserViewMock` and `UserRepositoryMock`. They will implement the protocols that we defined earlier which will allow us to inject them into `UserPresenter`.
 
 ```swift
 class UserViewMock: UserView {
@@ -100,11 +100,13 @@ class UserPresenterTests: XCTestCase {
 }
 ```
 
+Pretty nice, don't you think?
+
 ---
 
 ### But... what about unowned code?
 
-We saw that writing mocks for code that we own is very easy, we only need to make our classes adopt certain protocols and then create mock implementations with control variables adopting those same protocols. But what happens with code which we do not own and we can't modify? 
+We saw that writing mocks for code that we own is very easy, we only need to make our production and mock classes adopt the same protocol. But what happens with code which we do not own and we can't modify? 
 
 Once again, we need to use _protocols_. We need to extend the code that we do not own with our own protocols. Let's see this in action with a simple `Counter` that relies on `UserDefaults`.
 
@@ -133,7 +135,7 @@ class Counter {
 }
 ```
 
-See? We decorated Apple's `UserDefaults` with our own protocol named `Defaults` where we defined functions with the same signature that `UserDefaults` has. `Counter` then declares a `Defaults` constant that gets injected through the initializer using a default value of `UserDefaults.standard` but with type `Defaults`, which is our own protocol. We can now use the exact same technique as before to implement our own `DefaultsMock` in the test target.
+See? We decorated Apple's `UserDefaults` with our own protocol named `Defaults` where we defined functions with the same signature that `UserDefaults` has. `Counter` then declares a `Defaults` instance variable that gets injected through the initializer using a default value of `UserDefaults.standard` but with type `Defaults`; which is our own protocol. We can now use the exact same technique as before to implement our own `DefaultsMock` in the test target.
 
 ```swift
 class DefaultsMock: Defaults {
