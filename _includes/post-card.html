@@ -17,7 +17,6 @@
 
       <p class='c-post-card__excerpt u-font-small'>
         {{ post.description | strip_html }}
-        <!-- {{ post.content | strip_html | truncatewords:25 }} -->
       </p>
 
       <span class='c-post-card__date'>{{ post.date | date: '%d %b %Y' }} - {{ post.content | reading_time_as_i }} read</span>
