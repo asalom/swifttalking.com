@@ -7,11 +7,13 @@
     display: block;
     width: 25px;
     height: 25px;
-    background: url(/images/site/home-icon.svg);
+    background-color: $color-text;
+    -webkit-mask-image: url(/images/site/home-icon.svg);
+    mask-image: url(/images/site/home-icon.svg);
     background-size: 25px 25px;
 
     @include attention() {
-      fill: $color-brand;
+      background-color: $color-brand;
     }
   } 
 }
