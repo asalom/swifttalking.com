@@ -7,7 +7,7 @@
 
 # Site settings
 title:              Swift Talking
-logo:               /images/site/logo.png # Logo image URL
+#logo:               /images/site/logo.png # Logo image URL
 #email:              email@example.com
 description:        Swift Talking is a blog updated every two weeks about Swift, tooling, Continuous Integration and other stuff written by Alex Salom.
 baseurl:            '' # The subpath of your site, e.g. /blog
