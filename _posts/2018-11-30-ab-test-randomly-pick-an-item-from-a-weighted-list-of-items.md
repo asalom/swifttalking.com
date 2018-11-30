@@ -53,7 +53,7 @@ class RandomNumberImpl: RandomNumber {
 }
 ```
 
-With all this in place, how to use it? To continue with our onboarding example, we need to initialize an `ABTester` instance of generic type `Onboarding` and call the `ABTest` function with a weighted list of onboardings adjusting their weight depending which onboarding we want to show more often over the others
+With all this in place, how to use it? To continue with our onboarding example, we need to initialize an `ABTester` instance of generic type `Onboarding` and call the `ABTest` function with a weighted list of onboardings adjusting their weight depending which onboarding we want to show more often over the others.
 
 ```swift
 let abTester = ABTester<Onboarding>()
