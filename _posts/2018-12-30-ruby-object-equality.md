@@ -174,7 +174,7 @@ when person2 then puts 'Salom' # person2.===('Alex') is false
 end
 ```
 
-With regular expressions it makes much more sense. [Regexp](https://ruby-doc.org/core-2.5.0/Regexp.html) has a custom implementation of `===` which receives a string to match against
+With regular expressions it makes much more sense. [Regexp](https://ruby-doc.org/core-2.5.0/Regexp.html) has a custom implementation of `===` which receives a string so it can match the regex against it.
 
 ```ruby
 branch = `git rev-parse --abbrev-ref HEAD`
@@ -184,8 +184,4 @@ case branch
 when /^master$/ then puts 'master' 
 when /^develop$/ then puts 'develop'
 end
-```
-
-```ruby
-when /^master$/ then puts 'master'
 ```
