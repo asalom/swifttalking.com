@@ -13,7 +13,6 @@ Take a look at the [Podfile](https://guides.cocoapods.org/syntax/podfile.html) b
 ```ruby
 platform :ios, '11.0'
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/LivePersonInc/iOSPodSpecs.git'
 
 use_frameworks!
 
@@ -121,8 +120,8 @@ class Person
   end
 end
 
-person1 = Person.new("Alex")
-person2 = Person.new("Alex")
+person1 = Person.new('Alex')
+person2 = Person.new('Alex')
 
 puts person1 == person2 # person1.==(person2) is true
 ```
@@ -138,8 +137,8 @@ class Person
   end
 end
 
-person1 = Person.new("Alex")
-person2 = Person.new("Alex")
+person1 = Person.new('Alex')
+person2 = Person.new('Alex')
 
 puts person1 == person2 # person1.==(person2) is false
 ```
