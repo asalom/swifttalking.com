@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Different ways Ruby understands equality
+title: Different ways Ruby objects understand equality
 description: In Ruby we have different ways to check object equality. Learn the differences here.
 author: asalom
 tags:   [ruby]
@@ -8,7 +8,7 @@ tags:   [ruby]
 
 [Ruby](https://www.ruby-lang.org/en/) is a very good choice to learn as a secondary language for an iOS Engineer. Many of the tools we use daily are written in Ruby: [fastlane](https://fastlane.tools/), [CocoaPods](https://cocoapods.org/), [Danger](https://danger.systems/) and many others. Not only their code is written in Ruby, also their configuration files are.
 
-Take a look at this [Podfile](https://guides.cocoapods.org/syntax/podfile.html). For a while I thought it was just a configuration file but if you pay close attention to it, it is actually plain Ruby code that [CocoaPods](https://cocoapods.org/) will execute when generating a project. As we can see in this example we define dependencies to be added to the project and towards the end we also write a workaround to solve an old issue that by the way it is already fixed for version `1.6.0.beta.2`. All this is written in Ruby.
+Take a look at the [Podfile](https://guides.cocoapods.org/syntax/podfile.html) below. For a while I thought it was just a configuration file but if you pay close attention to it, it is actually plain Ruby code that [CocoaPods](https://cocoapods.org/) will execute when generating a project. As we can see in this example we define dependencies to be added to the project and towards the end we also write a workaround to solve an old issue that by the way it is already fixed for version `1.6.0.beta.2`. All this is written in Ruby.
 
 ```ruby
 platform :ios, '11.0'
@@ -53,10 +53,10 @@ The [fastfile](https://docs.fastlane.tools/advanced/Fastfile/)? Also written in 
 
 ### What is equal in Ruby
 
-In Ruby we have 4 different ways to check object equality and each of them is meant for a different purpose: `equal?`, `eql?`, `==` and `===`
+In Ruby we have 4 different ways to check object for equality and each of them is meant for a different purpose: `equal?`, `eql?`, `==` and `===`. All these are methods defined in [Object](https://ruby-doc.org/core-2.6/Object.html) and every object we create will automatically inherit from it.
 
 #### • `equal?`
-This method checks for identity equality between two objects and this means that two objects are `equal?` if they point to the same reference. It comes for free with every Ruby object since it is defined in [Object](https://ruby-doc.org/core-2.6/Object.html) and every other Ruby object inherits from it. [Well, almost every object but this is out of the scope of this post](https://stackoverflow.com/questions/8894817/whats-the-difference-between-object-and-basicobject-in-ruby).
+This method checks for identity equality between two objects. This means that two objects are `equal?` if they point to the same reference.
 
 ```ruby
 foo = "foo"
@@ -127,7 +127,7 @@ person2 = Person.new("Alex")
 puts person1 == person2 # person1.==(person2) is true
 ```
 
-The default implementation of this method checks object identity by calling `equal?`. Knowing this, if we were to remove the implementation of `==` from the previous example, the objects wouldn't be equal.
+The default implementation of this method checks object identity by calling `equal?`. Knowing this, if we were to remove the implementation of `==` from the previous example, the two objects wouldn't be equal.
 
 ```ruby
 class Person
@@ -149,7 +149,7 @@ puts person1 == person2 # person1.==(person2) is false
 #### • `===`
 Last we have the triple equal which is used inside case statements. The `===` method will be executed in each `when` object against the `case` object. The main reason for the triple equal to exist is so we can match regular expressions in a cleaner way. It's probably a good idea to leave the `===` alone unless doing so results in really ugly case statements.
 
-By default `===` calls the double equals method.
+By default the triple equals `===` calls the double equals `==` method.
 
 
 ```ruby
@@ -180,7 +180,8 @@ With regular expressions it makes much more sense. [Regexp](https://ruby-doc.org
 branch = `git rev-parse --abbrev-ref HEAD`
 
 case branch
-# This is equivalent to Regexp.new('^master$').match('master')
+# The first 'when' is equivalent to Regexp.new('^master$').match('master')
+# It is also equivalent to /^master$/ ~= master'
 when /^master$/ then puts 'master' 
 when /^develop$/ then puts 'develop'
 end
