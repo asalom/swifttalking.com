@@ -56,6 +56,6 @@ if isRunningTests {
 }
 ```
 
-You may notice that not only we did inject a fake *App Delegate* but also have overrode ```application: didFinishLaunchingWithOptions``` setting an empty <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/">UIViewController</a> so we avoid too any expensive initialization tasks our real root View Controller may perform.
+You may notice that not only we did inject a fake *App Delegate* but also have overrode ```application: didFinishLaunchingWithOptions``` setting an empty <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/">UIViewController</a> so we also avoid any expensive initialization tasks our real root View Controller may perform.
 
 That's all there is to it.
