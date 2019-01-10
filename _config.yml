@@ -32,6 +32,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-minifier
 
 include:
   - _pages
