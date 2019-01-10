@@ -32,7 +32,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-minifier
+  - jekyll-tidy
 
 include:
   - _pages
@@ -65,3 +65,8 @@ authors:
     github_username:  asalom
     twitter_username: empatiia
     linkedin_username: alexsalom
+
+jekyll_tidy:
+  exclude:
+    - robots.txt
+    - humans.txt
