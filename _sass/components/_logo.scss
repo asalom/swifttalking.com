@@ -15,6 +15,7 @@
 
   &__img {
     margin: 0 auto;
-    max-height: double($base-spacing-unit);
+    height: 60px;
+    //max-height: double($base-spacing-unit);
   }
 }
