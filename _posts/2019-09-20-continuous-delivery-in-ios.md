@@ -120,5 +120,8 @@ We can see this in action in this screenshot taken from [crvsh' Jira](https://cr
 
 ### So what...
 
-This flow has helped my team accomplish a complete separation of the build process between developers and testers. However we need to remember that each team is different and so are their needs. Before deciding on what flow to choose, we need to pay close attention as to which actions can be automated to ease the work of someone. Perhaps QA prefers a daily build: we should be ready to do that with a cron job. Maybe we have a team solely dedicated to sign and release applications to the store: we could create git tags and send notifications to the people in charge when we commit to a certain branch. Or maybe someone likes getting a signed `.ipa` file which can then be uploaded to the store: we could place an `.ipa` file in a Google Drive for that person to upload it.
-The possibilities are infinite, but we need to be careful: what we automate should ease the work and not create more. I'd love to hear which automations you created, feel free to share those in the comments.
+This flow has helped my team accomplish a complete separation of the build process between developers and testers. However we need to remember that each team is different and so are their needs. Before deciding on what flow to choose, we need to pay close attention as to which actions can be automated to ease the work of someone. Perhaps QA prefers a daily build: we should be ready to do that with a cron job. Maybe we have a team solely dedicated to sign and release applications to the store: we could create git tags and send notifications to the people in charge when we commit to a certain branch. Or maybe someone likes getting a signed `.ipa` file which can then be uploaded to the store: we could place an `.ipa` file in a Google Drive folder for that person to upload it.
+
+The possibilities are infinite, but we need to be careful: what we automate should ease the work and not create more. 
+
+I'd love to hear which automations you created, feel free to share those in the comments.
