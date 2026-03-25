@@ -1,3 +1,7 @@
+[build]
+  publish = "_publish"
+  command = "mkdir -p _publish && echo '/* https://alexsalom.es/:splat 301!' > _publish/_redirects"
+
 [[redirects]]
   from = "/*"
   to = "https://alexsalom.es/:splat"
