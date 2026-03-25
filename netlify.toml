@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/*"
+  to = "https://alexsalom.es/:splat"
+  status = 301
+  force = true
